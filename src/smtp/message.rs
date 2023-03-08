@@ -286,7 +286,7 @@ impl<'x> IntoMessage<'x> for Message<'x> {
 
 #[cfg(feature = "builder")]
 impl<'x, 'y> IntoMessage<'x> for MessageBuilder<'y> {
-    fn into_message(self) -> crate::Result<Message<'x>> {
+    fn into_message(mut self) -> crate::Result<Message<'x>> {
         let mut mail_from = None;
         let mut rcpt_to = std::collections::HashSet::new();
 
